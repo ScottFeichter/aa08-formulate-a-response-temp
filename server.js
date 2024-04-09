@@ -4,8 +4,7 @@ const server = http.createServer((req, res) => {
 
   // console.log("THE REQ: ", req);
 
-  res.status = 200;
-  res.write(`<!DOCTYPE html>
+  const responseBody = `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -15,9 +14,13 @@ const server = http.createServer((req, res) => {
   <body>
     <h1>Hello there!</h1>
   </body>
-  </html>`);
+  </html>`;
 
-  res.end(`this is the end`);
+  res.status = 200;
+  res.setHeader(`Content-Type`, `text/html`);
+  res.write(responseBody);
+
+  return res.end(this is the end);
 });
 
 
